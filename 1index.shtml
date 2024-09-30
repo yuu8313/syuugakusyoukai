@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Code</title>
+    <style>/* カスタムプロパティ（CSS変数）の定義 */
+:root {
+    --primary-color: #0077be;
+    --secondary-color: #ffa500;
+    --background-color: #e6f3ff;
+    --text-color: #333;
+    --accent-color: #ff6b6b;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    transition: all 0.5s ease;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+h1, h2, h3 {
+    font-family: 'Noto Serif JP', serif;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+.schedule {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.items-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--primary-color);
+    color: white;
+    margin-top: 40px;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    opacity: 0.1;
+    transition: opacity 0.3s ease;
+}
+
+#theme-toggle:hover {
+    opacity: 1;
+}
+
+body.mountain-theme {
+    --primary-color: #228B22;
+    --secondary-color: #8B4513;
+    --background-color: #F0FFF0;
+    --text-color: #333;
+    --accent-color: #FF4500;
+}
+
+/* 新しく追加する画像ギャラリー用のクラス */
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.image-gallery img {
+    width: calc(33.333% - 20px); /* 3列の場合 */
+    max-width: 250px; /* 最大幅を設定 */
+    object-fit: cover;
+    margin: 0; /* 既存のmarginをリセット */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .image-gallery img {
+        width: calc(50% - 20px); /* 小さい画面では2列に */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-gallery img {
+        width: 100%; /* さらに小さい画面では1列に */
+    }
+}</style>
+</head>
+<body>
+<audio id="bgm-audio" src="audio/bgm.mp3" autoplay loop></audio>
+<audio id="click-sound" src="audio/kurikku.mp3"></audio>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+　 <!-- ファビコン -->
+   <link rel="icon" href="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>沖縄修学旅行</title>
+    <!-- Google Fontsの読み込み用 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- アニメーションライブラリ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- CSSファイル -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="animate__animated animate__fadeIn">
+        <h1>沖縄修学旅行</h1>
+        <p>〜南国の楽園で文化と自然を体験〜</p>
+    </header>
+    
+    <div class="container">
+        <main>
+            <section class="fade-in animate__animated animate__fadeInUp">
+                <h2>旅行概要</h2>
+                <p>今年の修学旅行では、日本の南端に位置する沖縄県を訪れます。美しい海と豊かな自然、独自の文化と歴史を持つ沖縄で、忘れられない思い出を作りましょう。</p>
+                <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\okinawa_ime-zi.png" alt="沖縄の写真" class="animate__animated animate__zoomIn">
+            </section>
+
+            <!-- 旅程セクション -->
+            <section class="schedule fade-in animate__animated animate__fadeInUp">
+                <h2>旅程</h2>
+                <div class="animate__animated animate__fadeInLeft">
+                    <h3>1日目：平和学習</h3>
+                    <ul>
+                        <li>ガマ体験 - 糸数アブチラガマの中へ入った</li>
+                        <li>ひめゆりの塔 - ひめゆり学徒隊の記念館</li>
+                        <li>平和記念公園 - 戦死者の名前が刻まれた石碑がある</li>
+　　　　           <div class="image-gallery">
+	　　  <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\abutiragama.jpg" alt="アブチラガマ" class="animate__animated animate__zoomIn">
+	        <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\himeyurinotou_okinawa.jpg" alt="ひめゆりの塔" class="animate__animated animate__zoomIn">
+	        <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\heiwakinenkouen.jpg" alt="平和公園" class="animate__animated animate__zoomIn">
+　　　　　　　</div>
+                    </ul>
+                </div>
+                <div class="animate__animated animate__fadeInRight">
+                    <h3>2日目：自然体験</h3>
+                    <ul>
+	　　<h4>やんばるの森</h4>
+                        <li>やんばる国立公園 - ヤンバルクイナのクー太が水浴びしてくれた</li>
+                        <li>やまのぼり - やんばる独自の生物を発見しました。</li>
+	　　<h4>マリンスポーツ</h4>
+                        <li>昼食はカレーでした</li>
+                        <li>カヤックを体験</li>
+                        <li>バナナボートを体験</li>
+　　　　           <div class="image-gallery">
+	　　  <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\yanbaruku-ta.jpg" alt="クー太" class="animate__animated animate__zoomIn">
+	        <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\bananabo-to.jpg" alt="ひめゆりの塔" class="animate__animated animate__zoomIn">
+
+　　　　　　　</div>
+                    </ul>
+                </div>
+                <div class="animate__animated animate__fadeInLeft">
+                    <h3>3日目：国際通り探索</h3>
+                    <ul>
+                        <li>買い物 - ちんすこうなどのお土産を購入</li>
+                        <li>食事 - 伝統的な料理を楽しんだ</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 持ち物リストセクション -->
+            <section class="fade-in animate__animated animate__fadeInUp">
+                <h2>持って行った物リスト</h2>
+                <div class="items-list">
+                    <div class="item animate__animated animate__zoomIn">体操服</div>
+                    <div class="item animate__animated animate__zoomIn">制服</div>
+                    <div class="item animate__animated animate__zoomIn">寝巻</div>
+                    <div class="item animate__animated animate__zoomIn">金</div>
+                    <div class="item animate__animated animate__zoomIn">菓子</div>
+                    <div class="item animate__animated animate__zoomIn">予定表</div>
+                </div>
+            </section>
+
+            <!-- 沖縄の魅力セクション -->
+            <section class="fade-in animate__animated animate__fadeInUp">
+                <h2>沖縄の魅力</h2>
+                <p>沖縄は日本本土とは異なる独自の文化と歴史を持つ島です。琉球王国の歴史や伝統工芸などが体験できます。</p>
+　　　　<div class="image-gallery">
+                <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\okinawa_dentouteki.jpg" alt="沖縄の伝統文化" class="animate__animated animate__zoomIn">
+                <img src="X:\18-技術\2024　技術\3年生\1組\オリジナルHP\35 吉住悠佑\修学旅行用ホームページ\syasin\okinawa_dentou_si-sa-.jpg" alt="沖縄の伝統文化" class="animate__animated animate__zoomIn">
+　　　　</div>
+            </section>
+
+            <!-- 注意事項セクション -->
+            <section class="fade-in animate__animated animate__fadeInUp">
+                <h2>注意事項</h2>
+                <ul>
+                    <li>日差しに注意</li>
+                    <li>水分補給を忘れずに</li>
+                </ul>
+            </section>
+           
+            <section class="fade-in animate__animated animate__fadeInUp">
+                <h2>感想</h2>
+                <ul>
+                    <li>たのしかったです。特に<b>アレ</b>がよかったです</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2024 氷上中学校 吉住悠佑</p>
+    </footer>
+
+    <!-- テーマ切り替えボタン -->
+    <button id="theme-toggle">🏔️</button>
+
+    <!-- JavaScriptファイル -->
+    <script src="script.js"></script>
+</body>
+</html>
+s
+    <script>// フェードインアニメーション
+function fadeInOnScroll() {
+    const elements = document.querySelectorAll('.fade-in');
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight - 50) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', fadeInOnScroll);
+window.addEventListener('load', fadeInOnScroll);
+
+// テーマ切り替え機能
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('mountain-theme');
+    themeToggle.textContent = body.classList.contains('mountain-theme') ? '🏖️' : '🏔️';
+    
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('animate__animated', 'animate__pulse');
+        section.addEventListener('animationend', () => {
+            section.classList.remove('animate__animated', 'animate__pulse');
+        });
+    });
+});
+
+// 画像ホバーエフェクト
+document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('mouseover', () => {
+        img.classList.add('animate__animated', 'animate__pulse');
+    });
+    img.addEventListener('animationend', () => {
+        img.classList.remove('animate__animated', 'animate__pulse');
+    });
+});
+
+// 持ち物リストアイテムのホバーエフェクト
+document.querySelectorAll('.item').forEach(item => {
+    item.addEventListener('mouseover', () => {
+        item.classList.add('animate__animated', 'animate__rubberBand');
+    });
+    item.addEventListener('animationend', () => {
+        item.classList.remove('animate__animated', 'animate__rubberBand');
+    });
+});
+ocnst clickSound = document.getElementById('click-sound');
+
+    document.addEventListener('click', function() {
+        clickSound.currentTime = 0;  // 毎回最初から再生するためリセット
+        clickSound.play();           // クリック音を再生
+    });
+</script>
+</body>
+</html>
